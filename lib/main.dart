@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:test_get/pages/home/home_page.dart';
+import 'package:test_get/pages/home1/home_page.dart';
+import 'package:test_get/services/storage_service.dart';
 
 
 Future<void> main() async {
@@ -14,7 +16,7 @@ Future<void> main() async {
   var initSetting =
   InitializationSettings(android: initAndroidSetting, iOS: initIosSetting);
   await FlutterLocalNotificationsPlugin().initialize(initSetting);
-
+  await StorageService.init();
   runApp(MyApp());
 }
 // class Controller extends GetxController {
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const HomePage1(),
     );
   }
 }
